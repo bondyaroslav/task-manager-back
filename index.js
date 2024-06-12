@@ -1,6 +1,7 @@
 const express = require("express")
 const employeeRouter = require("./src/routes/employeeRouter")
 const projectRouter = require("./src/routes/projectRouter")
+const taskRouter = require("./src/routes/taskRouter")
 
 const PORT = 5000 //process.env.PORT ||
 const app = express()
@@ -15,6 +16,7 @@ app.use((req, res, next) => {
 app.use(express.json())
 app.use('/api', employeeRouter)
 app.use('/api', projectRouter)
+app.use('/api', taskRouter)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
