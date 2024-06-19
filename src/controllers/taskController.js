@@ -30,7 +30,7 @@ class TaskController {
         try {
             const {id} = req.params
             const projectId = id
-            const targetTask = await db.query(`SELECT * FROM "task" WHERE "task_id" = $1`, [projectId])
+            const targetTask = await db.query(`SELECT * FROM "task" WHERE "project_id" = $1`, [projectId])
             res.json(targetTask.rows)
         } catch (err) {
             console.error(err)
