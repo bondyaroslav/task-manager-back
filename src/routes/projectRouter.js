@@ -4,6 +4,7 @@ const projectController = require("../controllers/projectController")
 
 router.post('/project', projectController.createProject)
 router.get('/project', projectController.getAllProjects)
+router.get('/project/:id', projectController.getTargetProject)
 router.put('/project/:id', projectController.updateProject)
 router.delete('/project/:id', projectController.deleteProject)
 

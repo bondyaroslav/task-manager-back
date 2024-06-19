@@ -26,6 +26,18 @@ class ProjectController {
         }
     }
 
+    async getTargetProject(req, res) {
+        try {
+            const {id} = req.params
+            const projectId = id
+            const targetProject = await db.query(`SELECT * FROM "project" WHERE "project_id" = $1`, [projectId])
+            res.json(targetProject.rows)
+        } catch (err) {
+            console.error(err)
+            res.status(500).json({ error: 'Internal server error' })
+        }
+    }
+
     async updateProject(req, res) {
         try {
             const { id } = req.params
